@@ -1,0 +1,15 @@
+{
+  "name": "Kali Linux GUI",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "remoteUser": "kali",
+  "forwardPorts": [6080],
+  "portsAttributes": {
+    "6080": {
+      "label": "Kali Desktop",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "postStartCommand": "bash .devcontainer/start-gui.sh"
+}
