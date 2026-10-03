@@ -1,15 +1,17 @@
 {
-  "name": "Kali Linux GUI",
+  "name": "Kali XFCE noVNC",
   "build": {
     "dockerfile": "Dockerfile"
   },
   "remoteUser": "kali",
+  "runArgs": ["--shm-size=1g"],
   "forwardPorts": [6080],
   "portsAttributes": {
     "6080": {
-      "label": "Kali Desktop",
-      "onAutoForward": "openBrowser"
+      "label": "Kali Desktop (noVNC)",
+      "onAutoForward": "openBrowser",
+      "protocol": "http"
     }
   },
-  "postStartCommand": "bash .devcontainer/start-gui.sh"
+  "postStartCommand": "chmod +x .devcontainer/start-desktop.sh && .devcontainer/start-desktop.sh"
 }
